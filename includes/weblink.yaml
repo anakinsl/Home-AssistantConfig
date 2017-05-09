@@ -1,0 +1,14 @@
+############################################################
+#
+# Home Assistant Input Selects
+#
+############################################################
+
+entities:
+  - name: Router
+    url: !secret router_url
+    icon: mdi:router-wireless
+  - name: Synology
+    url: !secret synology_url
+    icon: mdi:network
+

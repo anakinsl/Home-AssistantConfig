@@ -1,0 +1,86 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 54.9806
+  longitude: -1.4508
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 3
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/London
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  # api_password: PASSWORD
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Weather Prediction
+sensor:
+  - platform: darksky
+    api_key: e43e534770f626b0a7b8a5ce7e5f8c5e
+    monitored_conditions:
+      - summary
+      - icon
+      - temperature
+      - humidity
+      - wind_speed
+      - pressure
+
+# Text to speech
+tts:
+  platform: google
+
+# Camera
+camera:
+  - platform: rpi_camera
+    image_rotation: 270
+    timelapse: 500    
+
+# Climate
+nest:
+  client_id: a4f8f80d-2ee2-46cc-a258-d3adc0645ac7
+  client_secret: DoWTLJju3I1vAinIetGBO9I9I 
+
+  sensors:
+    monitored_conditions:
+      - 'temperature'
+      - 'target'
+      - 'humidity'
+      - 'operation_mode'   
+      - 'hvac_state'
+  
+  binary_sensors:
+    monitored_conditions:
+      - 'online'
+
+group: !include groups.yaml

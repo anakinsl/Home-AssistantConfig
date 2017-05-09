@@ -1,0 +1,173 @@
+############################################################
+#
+# Home Assistant Group
+#
+############################################################
+
+default_view:
+  view: yes
+  name: Home
+  icon: mdi:home
+  entities:
+    - group.weather
+    - group.climate
+    - group.media_office_home
+    - group.media_living_room_tv
+    - group.media_living_room_atv
+    - group.media_bed_room_tv
+    - group.media_kitchen_tv
+    - group.media_office_speaker
+#    - group.media_spotify
+#    - group.radio
+#    - group.family
+#    - group.scripts
+doors_view:
+  view: yes
+  icon: mdi:security-home
+  entities:
+    - group.cameras
+lights_view:
+  view: yes
+  icon: mdi:lightbulb
+  entities:
+    - group.lamps
+info_view:
+  view: yes
+  icon: mdi:settings
+  entities:
+    - group.infolinks
+    - group.network
+    - group.synology
+#    - group.automation_override
+#    - group.multisensor
+
+# Groups
+weather:
+  name: Weather
+  entities:
+    - sun.sun
+    - sensor.weather_summary
+    - sensor.weather_temperature
+    - sensor.weather_minimum
+    - sensor.weather_maximum
+    - sensor.weather_precip_intensity
+    - sensor.weather_humidity
+
+climate:
+  name: Climate
+  entities:
+    - climate.hallway
+   
+media_office_home:
+  name: Media Office Home
+  entities:
+    - media_player.office_home
+media_living_room_tv:
+  name: Media Living Room TV
+  entities:
+    - media_player.living_room_tv
+media_living_room_atv:
+  name: Media Living Room Apple TV
+  entities:
+    - media_player._apple_tv
+media_bed_room_tv:
+  name: Media Bedroom Apple TV
+  entities:
+    - media_player._apple_tv_2
+media_kitchen_tv:
+  name: Media Kitchen TV
+  entities:
+    - media_player.chromecast6110
+media_office_speaker:
+  name: Media Office Speaker
+  entities:
+    - media_player.office_speaker
+#media_spotify:
+#  name: Media Spotify
+#  entities:
+ #   - media_player.spotify
+
+#family:
+#  name: Family
+#  entities:
+#    - device_tracker.trent_trent
+#    - device_tracker.2c8a72bbc83c
+    
+#scripts:
+#  name: Scripts
+#  entities:
+#    - script.good_night
+    
+cameras:
+  name: Cameras
+  entities:
+    - camera.raspberry_pi_camera
+#    - camera.back_deck
+lamps:
+  name: Lamps
+  entities:
+    - switch.work_lamp
+#    - switch.bed_rachel_lamp
+#    - switch.bed_trent_lamp
+#    - switch.outside_heater
+#    - input_boolean.ifttt_office_lamp
+
+infolinks:
+  name: Links
+  entities:
+    - weblink.router
+    - weblink.synology
+
+network:
+  name: Network
+  entities:
+    - sensor.speedtest_ping
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.nzbget_speed
+    - sensor.piuptime
+    - sensor.livingroomgooglehome
+    - sensor.livingroomtv
+    - sensor.livingroomchromecast
+    - sensor.bedroomchromecast
+    - sensor.outsidechromecast
+    - sensor.xboxone
+    - sensor.ps4
+    
+synology:
+  name: "Synology"
+  entities:
+    - sensor.cpu_load_total
+    - sensor.memory_usage_real
+    - sensor.status_volume_1
+    - sensor.volume_used_volume_1
+    - sensor.status_volume_2
+    - sensor.volume_used_volume_2
+    - sensor.maximum_disk_temp_volume_2
+    - sensor.status_volume_3
+    
+#automation_override:
+#  name: Automation Override
+#  entities:
+#    - input_boolean.disable_auto_living_room_lamp
+#    - input_boolean.disable_media_player_light_control
+#    - input_boolean.disable_current_temperature_notification
+#    - input_boolean.disable_morning_notification
+#    - input_boolean.disable_afternoon_notification
+#    - input_boolean.disable_unexpected_motion_notification
+#    - input_boolean.disable_device_tampering_notification
+
+
+#multisensor:
+#  name: Multisensor
+#  entities:
+#    - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_2_1
+##    - sensor.fibaro_system_fgms001zw5_motion_sensor_sourcenodeid_2_2
+#    - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_2_3
+#    - sensor.fibaro_system_fgms001zw5_motion_sensor_seismic_intensity_2_25
+##    - sensor.fibaro_system_fgms001zw5_motion_sensor_general_2_0
+##    - sensor.fibaro_system_fgms001zw5_motion_sensor_burglar_2_10
+##    - sensor.__battery_level_2_0
+#    - binary_sensor.motion
+#    - binary_sensor.tampering
+

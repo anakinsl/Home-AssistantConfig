@@ -1,0 +1,102 @@
+############################################################
+#
+# Sensor
+#
+############################################################
+
+# Dark Sky Weather
+  - platform: darksky
+    api_key: !secret darksky_api
+    name: Weather
+    monitored_conditions:
+      - summary
+#     - icon
+#     - nearest_storm_distance
+#     - nearest_storm_bearing
+#     - precip_type
+      - precip_intensity
+#     - precip_probability
+      - temperature
+#     - apparent_temperature
+#     - dew_point
+#     - wind_speed
+#     - wind_bearing
+#     - cloud_cover
+      - humidity
+#     - pressure
+#     - visibility
+#     - ozone
+      - minutely_summary
+#     - hourly_summary
+      - daily_summary
+      - temperature_max
+      - temperature_min
+#     - apparent_temperature_max
+#     - apparent_temperature_min
+#     - precip_intensity_max
+
+  - platform: nest
+    monitored_conditions:
+      - 'temperature'
+      - 'target'
+      - 'humidity'
+      - 'operation_mode'
+
+# Uptime
+  - platform: command_line
+    name: piuptime
+    command: uptime | sed 's/.*up \([^,]*\), .*/\1/'
+  
+# Speedtest
+  - platform: speedtest
+    minute: 30
+    hour:
+      - 0
+      - 12
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+    
+# Synology
+  - platform: synologydsm
+    host: !secret sensor_synology_host
+    username: !secret sensor_synology_username
+    password: !secret sensor_synology_password
+    monitored_conditions:
+      - cpu_total_load
+      - memory_real_usage
+      - disk_status
+      - volume_status
+      - volume_percentage_used
+      - volume_disk_temp_max
+
+      
+# Device Tracking Templates
+#- platform: template
+#  sensors:
+#    ps3:
+#      friendly_name: 'Playstation 3'
+#      value_template: "{{ 'Online' if is_state('device_tracker.ac899510c96d', 'home') else 'Offline' }}"
+#    officegooglehome:
+#      friendly_name: 'Office Google Home'
+#      value_template: "{{ 'Online' if is_state('device_tracker.f4f5d8dc6f8e', 'home') else 'Offline' }}"
+#    livingroomchromecast:
+#      friendly_name: 'Living Room Chromecast'
+#      value_template: "{{ 'Online' if is_state('device_tracker.a477337ee656', 'home') else 'Offline' }}"
+#    kitchenchromecast:
+#      friendly_name: 'Kitchen Chromecast'
+#      value_template: "{{ 'Online' if is_state('device_tracker.80d21d2c642a', 'home') else 'Offline' }}" 
+#    officechromecast:
+#      friendly_name: 'Office Chromecast Audio'
+#      value_template: "{{ 'Online' if is_state('device_tracker.546009dca412', 'home') else 'Offline' }}"
+#    bedroomatv:
+#      friendly_name: 'Bedroom Apple TV'
+#      value_template: "{{ 'Online' if is_state('device_tracker.546009dca412', 'home') else 'Offline' }}"
+#    livingroomatv:
+#      friendly_name: 'Living Room Apple TV'
+#      value_template: "{{ 'Online' if is_state('device_tracker.546009dca412', 'home') else 'Offline' }}"
+# API Stream Sensor
+#- platform: api_streams 
+
+
