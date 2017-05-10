@@ -1,4 +1,4 @@
-############################################################
+###########################################################
 #
 # Home Assistant Group
 #
@@ -17,20 +17,23 @@ default_view:
     - group.media_bed_room_tv
     - group.media_kitchen_tv
     - group.media_office_speaker
+    - group.family
 #    - group.media_spotify
 #    - group.radio
-#    - group.family
 #    - group.scripts
+
 doors_view:
   view: yes
   icon: mdi:security-home
   entities:
     - group.cameras
+
 lights_view:
   view: yes
   icon: mdi:lightbulb
   entities:
     - group.lamps
+
 info_view:
   view: yes
   icon: mdi:settings
@@ -87,11 +90,11 @@ media_office_speaker:
 #  entities:
  #   - media_player.spotify
 
-#family:
-#  name: Family
-#  entities:
-#    - device_tracker.trent_trent
-#    - device_tracker.2c8a72bbc83c
+family:
+  name: Family
+  entities:
+    - device_tracker.anakinsl_hw_p9
+    
     
 #scripts:
 #  name: Scripts
@@ -131,8 +134,6 @@ network:
     - sensor.livingroomchromecast
     - sensor.bedroomchromecast
     - sensor.outsidechromecast
-    - sensor.xboxone
-    - sensor.ps4
     
 synology:
   name: "Synology"

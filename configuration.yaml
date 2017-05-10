@@ -38,7 +38,7 @@ conversation:
 history:
 
 # Add Configuration Panel
-#config:
+config:
 
 # View all events in a logbook
 #logbook: !include includes/logbook.yaml
@@ -83,25 +83,26 @@ nest:
 #  key: !secret ifttt_api
 
 # iOS App
-#ios:
+ios:
 
 # Device Tracking
 # MQTT (Device Tracking)      
-#mqtt:
-#  broker: !secret mqtt_broker
-#  port: !secret mqtt_port
-#  username: !secret mqtt_username
-#  password: !secret mqtt_password
-  
+mqtt:
+  broker: !secret mqtt_broker
+  port: !secret mqtt_port
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+ 
 #   Owntracks
-#device_tracker:
-#  - platform: owntracks
-##   Router Based Device Tracking
-#  - platform: nmap_tracker
-#    hosts: 192.168.1.1/24
- #   exclude: 
-#     - 192.168.1.105
-#     - 192.168.1.100
+device_tracker:
+  - platform: owntracks
+
+#   Router Based Device Tracking
+  - platform: nmap_tracker
+    hosts: 192.168.2.1/24
+    exclude: 
+     - 192.168.2.101
+     - 192.168.2.110
      
 #ZWave Devices
 #zwave:
@@ -137,19 +138,19 @@ nest:
 ############
 # Additional Zones
 ############
-#zone:
-#  name: !secret zone_name
-#  latitude: !secret zone_latitude
-#  longitude: !secret zone_longitude
-#  icon: mdi:server-network
-#  radius: 200
+zone:
+  name: !secret zone_name
+  latitude: !secret zone_latitude
+  longitude: !secret zone_longitude
+  icon: mdi:briefcase
+  radius: 200
 
-#zone 2:
-#  name: !secret zone2_name
-#  latitude: !secret zone2_latitude
-#  longitude: !secret zone2_longitude
-#  icon: mdi:hospital-building
-#  radius: 200
+zone 2:
+  name: !secret zone2_name
+  latitude: !secret zone2_latitude
+  longitude: !secret zone2_longitude
+  icon: mdi:hospital-building
+  radius: 200
   
 
 ############

@@ -73,7 +73,7 @@
 
       
 # Device Tracking Templates
-#- platform: template
+#  - platform: template
 #  sensors:
 #    ps3:
 #      friendly_name: 'Playstation 3'
