@@ -73,23 +73,20 @@
 
       
 # Device Tracking Templates
-#- platform: template
-#  sensors:
-#    ps3:
-#      friendly_name: 'Playstation 3'
-#      value_template: "{{ 'Online' if is_state('device_tracker.ac899510c96d', 'home') else 'Offline' }}"
-#    officegooglehome:
-#      friendly_name: 'Office Google Home'
-#      value_template: "{{ 'Online' if is_state('device_tracker.f4f5d8dc6f8e', 'home') else 'Offline' }}"
-#    livingroomchromecast:
-#      friendly_name: 'Living Room Chromecast'
-#      value_template: "{{ 'Online' if is_state('device_tracker.a477337ee656', 'home') else 'Offline' }}"
+  - platform: template
+    sensors:
+     officegooglehome:
+       friendly_name: 'Office Google Home'
+       value_template: "{{ 'Online' if is_state('device_tracker.googlehome', 'home') else 'Offline' }}"
+     livingroomchromecast:
+       friendly_name: 'Living Room Chromecast'
+       value_template: "{{ 'Online' if is_state('device_tracker.chromecastultra', 'home') else 'Offline' }}"
 #    kitchenchromecast:
 #      friendly_name: 'Kitchen Chromecast'
 #      value_template: "{{ 'Online' if is_state('device_tracker.80d21d2c642a', 'home') else 'Offline' }}" 
-#    officechromecast:
-#      friendly_name: 'Office Chromecast Audio'
-#      value_template: "{{ 'Online' if is_state('device_tracker.546009dca412', 'home') else 'Offline' }}"
+     officechromecast:
+       friendly_name: 'Office Chromecast Audio'
+       value_template: "{{ 'Online' if is_state('device_tracker.chromecastaudio', 'home') else 'Offline' }}"
 #    bedroomatv:
 #      friendly_name: 'Bedroom Apple TV'
 #      value_template: "{{ 'Online' if is_state('device_tracker.546009dca412', 'home') else 'Offline' }}"

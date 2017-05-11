@@ -94,7 +94,7 @@ family:
   name: Family
   entities:
     - device_tracker.anakinsl_hw_p9
-    
+    - device_tracker.fansiphone    
     
 #scripts:
 #  name: Scripts
@@ -129,11 +129,12 @@ network:
     - sensor.speedtest_upload
     - sensor.nzbget_speed
     - sensor.piuptime
-    - sensor.livingroomgooglehome
-    - sensor.livingroomtv
+    - sensor.officegooglehome
+    - sensor.livingroomatv
+    - sensor.bedroomatv
     - sensor.livingroomchromecast
-    - sensor.bedroomchromecast
-    - sensor.outsidechromecast
+    - sensor.kitchenchromecast
+    - sensor.officechromecast
     
 synology:
   name: "Synology"
@@ -142,10 +143,10 @@ synology:
     - sensor.memory_usage_real
     - sensor.status_volume_1
     - sensor.volume_used_volume_1
+    - sensor.maximum_disk_temp_volume_1
     - sensor.status_volume_2
     - sensor.volume_used_volume_2
     - sensor.maximum_disk_temp_volume_2
-    - sensor.status_volume_3
     
 #automation_override:
 #  name: Automation Override
