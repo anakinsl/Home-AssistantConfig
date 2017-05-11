@@ -99,17 +99,14 @@ device_tracker:
 
 #   Router Based Device Tracking
   - platform: nmap_tracker
-    hosts: 192.168.2.1/24
-    consider_home: 900
-    track_new_devices: yes    
-    interval_seconds: 10
-    home_interval: 5
-    scan_options: " --privileged -sP "
-# sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap 
+    hosts: 192.168.2.2-195    
     exclude: 
-     - 192.168.2.101
-     - 192.168.2.110
-     
+     - 192.168.2.3-179
+    track_new_devices: no
+    home_interval: 5
+    interval_seconds: 10
+
+ 
 #ZWave Devices
 #zwave:
 #  usb_path: /dev/ttyACM0

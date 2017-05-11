@@ -38,11 +38,11 @@ info_view:
   view: yes
   icon: mdi:settings
   entities:
-    - group.infolinks
     - group.network
     - group.synology
 #    - group.automation_override
 #    - group.multisensor
+    - group.infolinks
 
 # Groups
 weather:
@@ -135,6 +135,11 @@ network:
     - sensor.livingroomchromecast
     - sensor.kitchenchromecast
     - sensor.officechromecast
+    - sensor.nestthermostat
+    - sensor.withingsweight
+    - sensor.synologynas
+    - sensor.fansiphone
+    - sensor.huawei_p9_plus
     
 synology:
   name: "Synology"

@@ -107,11 +107,8 @@
        value_template: "{{ 'Online' if is_state('device_tracker.fansiphone', 'home') else 'Offline' }}"
      huawei_p9_plus:
        friendly_name: 'Lei-phone'
-       value_template: "{{ 'Online' if is_state('device_tracker.huaweip9', 'home') else 'Offline' }}"
+       value_template: "{{ 'Online' if is_state('device_tracker.huawei_p9_plus', 'home') else 'Offline' }}"
 
 
-
-#API Stream Sensor
-  - platform: api_streams 
-
-
+  - platform: api_streams
+# API Stream Sensor
