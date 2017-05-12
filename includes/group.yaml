@@ -11,16 +11,25 @@ default_view:
   entities:
     - group.weather
     - group.climate
+    - group.family
+    - group.travel_time
+    - group.date_time
+#    - group.scripts
+
+player_view:
+  view: yes
+  name: Media Player
+  icon: mdi:google-play
+  entities:
     - group.media_office_home
     - group.media_living_room_tv
     - group.media_living_room_atv
     - group.media_bed_room_tv
     - group.media_kitchen_tv
     - group.media_office_speaker
-    - group.family
 #    - group.media_spotify
 #    - group.radio
-#    - group.scripts
+
 
 doors_view:
   view: yes
@@ -34,6 +43,7 @@ lights_view:
   entities:
     - group.lamps
 
+
 info_view:
   view: yes
   icon: mdi:settings
@@ -43,6 +53,9 @@ info_view:
 #    - group.automation_override
 #    - group.multisensor
     - group.infolinks
+    - group.system_monitor
+    - group.internet_speed
+
 
 # Groups
 weather:
@@ -121,14 +134,16 @@ infolinks:
     - weblink.router
     - weblink.synology
 
-network:
-  name: Network
+internet_speed:
+  name: Internet Speed
   entities:
     - sensor.speedtest_ping
     - sensor.speedtest_download
     - sensor.speedtest_upload
-    - sensor.nzbget_speed
-    - sensor.piuptime
+
+network:
+  name: Network
+  entities:
     - sensor.officegooglehome
     - sensor.livingroomatv
     - sensor.bedroomatv
@@ -140,6 +155,21 @@ network:
     - sensor.synologynas
     - sensor.fansiphone
     - sensor.huawei_p9_plus
+
+system_monitor:
+  name: System Monitor
+  entities:
+    - sensor.cpu_use  
+    - sensor.ram_free
+    - sensor.disk_free_
+    - sensor.ipv4_address_wlan0
+    - sensor.last_boot
+    - sensor.since_last_boot
+    - sensor.piuptime
+    - sensor.cpu_temperature
+    - sensor.ha_installed_version
+    - sensor.ha_current_version
+    - sensor.ha_last_restart
     
 synology:
   name: "Synology"
@@ -153,6 +183,21 @@ synology:
     - sensor.volume_used_volume_2
     - sensor.maximum_disk_temp_volume_2
     
+date_time:
+  name: Date Time
+  entities:
+    - sensor.time
+    - sensor.date
+    - binary_sensor.workday_sensor
+
+travel_time:
+  name: Travel Time
+  entities:
+    - sensor.home2work
+    - sensor.work2home
+    - sensor.lei2home
+    - sensor.lei2work
+
 #automation_override:
 #  name: Automation Override
 #  entities:

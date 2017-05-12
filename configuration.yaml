@@ -167,7 +167,7 @@ weblink: !include includes/weblink.yaml
 #input_boolean: !include includes/input_boolean.yaml
 #input_select: !include includes/input_select.yaml
 #input_slider: !include includes/input_slider.yaml
-#binary_sensor: !include includes/binary_sensor.yaml
+binary_sensor: !include includes/binary_sensor.yaml
 #script: !include includes/script.yaml
 #Microsoft Face Image Processing
 #image_processing: !include includes/image_processing.yaml

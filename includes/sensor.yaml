@@ -5,113 +5,189 @@
 ############################################################
 
 # Dark Sky Weather
-  - platform: darksky
-    api_key: !secret darksky_api
-    name: Weather
-    monitored_conditions:
-      - summary
+- platform: darksky
+  api_key: !secret darksky_api
+  name: Weather
+  monitored_conditions:
+    - summary
 #     - icon
 #     - nearest_storm_distance
 #     - nearest_storm_bearing
 #     - precip_type
-      - precip_intensity
+    - precip_intensity
 #     - precip_probability
-      - temperature
+    - temperature
 #     - apparent_temperature
 #     - dew_point
 #     - wind_speed
 #     - wind_bearing
 #     - cloud_cover
-      - humidity
+    - humidity
 #     - pressure
 #     - visibility
 #     - ozone
-      - minutely_summary
+    - minutely_summary
 #     - hourly_summary
-      - daily_summary
-      - temperature_max
-      - temperature_min
+    - daily_summary
+    - temperature_max
+    - temperature_min
 #     - apparent_temperature_max
 #     - apparent_temperature_min
 #     - precip_intensity_max
 
-  - platform: nest
-    monitored_conditions:
-      - 'temperature'
-      - 'target'
-      - 'humidity'
-      - 'operation_mode'
+- platform: nest
+  monitored_conditions:
+    - 'temperature'
+    - 'target'
+    - 'humidity'
+    - 'operation_mode'
 
 # Uptime
-  - platform: command_line
-    name: piuptime
-    command: uptime | sed 's/.*up \([^,]*\), .*/\1/'
+- platform: command_line
+  name: piuptime
+  command: uptime | sed 's/.*up \([^,]*\), .*/\1/'
   
 # Speedtest
-  - platform: speedtest
-    minute: 30
-    hour:
-      - 0
-      - 12
-    monitored_conditions:
-      - ping
-      - download
-      - upload
+- platform: speedtest
+  minute: 30
+  hour:
+    - 0
+    - 12
+  monitored_conditions:
+    - ping
+    - download
+    - upload
     
 # Synology
-  - platform: synologydsm
-    host: !secret sensor_synology_host
-    username: !secret sensor_synology_username
-    password: !secret sensor_synology_password
-    monitored_conditions:
-      - cpu_total_load
-      - memory_real_usage
-      - disk_status
-      - volume_status
-      - volume_percentage_used
-      - volume_disk_temp_max
+- platform: synologydsm
+  host: !secret sensor_synology_host
+  username: !secret sensor_synology_username
+  password: !secret sensor_synology_password
+  monitored_conditions:
+    - cpu_total_load
+    - memory_real_usage
+    - disk_status
+    - volume_status
+    - volume_percentage_used
+    - volume_disk_temp_max
 
       
 # Device Tracking Templates
-  - platform: template
-    sensors:
-     officegooglehome:
-       friendly_name: 'Office Google Home'
-       value_template: "{{ 'Online' if is_state('device_tracker.googlehome', 'home') else 'Offline' }}"
-     livingroomchromecast:
-       friendly_name: 'Living Room Chromecast'
-       value_template: "{{ 'Online' if is_state('device_tracker.chromecastultra', 'home') else 'Offline' }}"
-     kitchenchromecast:
-       friendly_name: 'Kitchen Chromecast'
-       value_template: "{{ 'Online' if is_state('device_tracker.chromecast', 'home') else 'Offline' }}" 
-     officechromecast:
-       friendly_name: 'Office Chromecast Audio'
-       value_template: "{{ 'Online' if is_state('device_tracker.chromecastaudio', 'home') else 'Offline' }}"
-     bedroomatv:
-       friendly_name: 'Bedroom Apple TV'
-       value_template: "{{ 'Online' if is_state('device_tracker.bedroomappletv', 'home') else 'Offline' }}"
-     livingroomatv:
-       friendly_name: 'Living Room Apple TV'
-       value_template: "{{ 'Online' if is_state('device_tracker.livingroomappletv', 'home') else 'Offline' }}"
-     nestthermostat:
-       friendly_name: 'Nest Thermostat'
-       value_template: "{{ 'Online' if is_state('device_tracker.nestthermostat', 'home') else 'Offline' }}"
-     withingsweight:
-       friendly_name: 'Withings Weight'
-       value_template: "{{ 'Online' if is_state('device_tracker.withingsweight', 'home') else 'Offline' }}"
-     synologynas:
-       friendly_name: 'Synology NAS'
-       value_template: "{{ 'Online' if is_state('device_tracker.synologynas', 'home') else 'Offline' }}"
-     fansiphone:  
-       friendly_name: 'Emily-phone'
-       value_template: "{{ 'Online' if is_state('device_tracker.fansiphone', 'home') else 'Offline' }}"
-     huawei_p9_plus:
-       friendly_name: 'Lei-phone'
-       value_template: "{{ 'Online' if is_state('device_tracker.huaweip9', 'home') else 'Offline' }}"
+- platform: template
+  sensors:
+    officegooglehome:
+      friendly_name: 'Office Google Home'
+      value_template: "{{ 'Online' if is_state('device_tracker.googlehome', 'home') else 'Offline' }}"
+    livingroomchromecast:
+      friendly_name: 'Living Room Chromecast'
+      value_template: "{{ 'Online' if is_state('device_tracker.chromecastultra', 'home') else 'Offline' }}"
+    kitchenchromecast:
+      friendly_name: 'Kitchen Chromecast'
+      value_template: "{{ 'Online' if is_state('device_tracker.chromecast', 'home') else 'Offline' }}" 
+    officechromecast:
+      friendly_name: 'Office Chromecast Audio'
+      value_template: "{{ 'Online' if is_state('device_tracker.chromecastaudio', 'home') else 'Offline' }}"
+    bedroomatv:
+      friendly_name: 'Bedroom Apple TV'
+      value_template: "{{ 'Online' if is_state('device_tracker.bedroomappletv', 'home') else 'Offline' }}"
+    livingroomatv:
+      friendly_name: 'Living Room Apple TV'
+      value_template: "{{ 'Online' if is_state('device_tracker.livingroomappletv', 'home') else 'Offline' }}"
+    nestthermostat:
+      friendly_name: 'Nest Thermostat'
+      value_template: "{{ 'Online' if is_state('device_tracker.nestthermostat', 'home') else 'Offline' }}"
+    withingsweight:
+      friendly_name: 'Withings Weight'
+      value_template: "{{ 'Online' if is_state('device_tracker.withingsweight', 'home') else 'Offline' }}"
+    synologynas:
+      friendly_name: 'Synology NAS'
+      value_template: "{{ 'Online' if is_state('device_tracker.synologynas', 'home') else 'Offline' }}"
+    fansiphone:  
+      friendly_name: 'Emily-phone'
+      value_template: "{{ 'Online' if is_state('device_tracker.fansiphone', 'home') else 'Offline' }}"
+    huawei_p9_plus:
+      friendly_name: 'Lei-phone'
+      value_template: "{{ 'Online' if is_state('device_tracker.huaweip9', 'home') else 'Offline' }}"
 
 
 
 #API Stream Sensor
-  - platform: api_streams 
+- platform: api_streams 
 
+# Date Time Sensor
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
 
+# System Monitor Sensors
+- platform: rest
+  resource: http://ip.jsontest.com
+  name: external_ip
+  value_template: '{{ value_json.ip }}'
+
+- platform: command_line
+  name: CPU Temperature
+  command: cat /sys/class/thermal/thermal_zone0/temp
+  unit_of_measurement: 'C'
+  value_template: '{{ (value|int / 1000)|round(1) }}'
+
+- platform: systemmonitor
+  resources:
+    - type: disk_free
+      arg: /
+    - type: memory_free
+    - type: processor_use
+    - type: ipv4_address
+      arg: eth0
+    - type: last_boot
+    - type: since_last_boot
+
+- platform: rest
+  resource: https://pypi.python.org/pypi/homeassistant/json
+  name: HA Current Version
+  value_template: '{{ value_json.info.version }}'
+
+- platform: command_line
+  name: HA Installed Version
+  command: /srv/homeassistant/homeassistant_venv/bin/hass --version
+  scan_interval: 86400
+
+- platform: template
+  sensors:
+    ha_last_restart:
+      value_template: '{{ as_timestamp(states.automation.startup_notification.attributes.last_triggered) | timestamp_custom("%b %d %X") }}'
+      friendly_name: HA Last Restart
+
+# Travel Time Sensors
+- platform: google_travel_time
+  name: Home2Work
+  api_key: !secret google_travel_time_apikey 
+  origin: zone.home
+  destination: zone.work
+  options:
+    mode: driving
+  
+- platform: google_travel_time
+  name: Work2Home
+  api_key: !secret google_travel_time_apikey 
+  origin: zone.work
+  destination: zone.home
+  options:
+    mode: driving
+  
+- platform: google_travel_time
+  name: Lei2Home
+  api_key: !secret google_travel_time_apikey 
+  origin: device_tracker.anakinsl_hw_p9
+  destination: zone.home
+  options:
+    mode: driving
+  
+- platform: google_travel_time
+  name: Lei2Work
+  api_key: !secret google_travel_time_apikey 
+  origin: device_tracker.anakinsl_hw_p9
+  destination: zone.work
+  options:
+    mode: driving

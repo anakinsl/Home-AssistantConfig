@@ -4,6 +4,30 @@
 # Icons from: https://materialdesignicons.com/
 ############################################################
 
+group.date_time:
+  order: 1
+group.weather:
+  order: 2
+group.travel_time:
+  order: 3
+group.climate:
+  order: 4
+group.family:
+  order: 5
+
+group.network:
+  order: 10
+group.internet_speed:
+  order: 11
+group.system_monitor:
+  order: 12
+group.synology:
+  order: 13
+group.infolinks: 
+  order: 14
+
+
+
 # Climate
 climate.hallway:
   friendly_name: "Nest Thermostat"
@@ -84,24 +108,46 @@ sensor.maximum_disk_temp_volume_1:
   friendly_name: Volume 1 Temperature
 sensor.maximum_disk_temp_volume_2:
   friendly_name: Volume 2 Temperature
-#sensor.status_volume_1:
-#  friendly_name: Volume 1 Status
-#sensor.status_volume_3:
-#  friendly_name: Volume 3 Status
-#sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_2_1:
-#  friendly_name: Living Room Temperature
-#  icon: mdi:thermometer
-#sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_2_3:
-#  friendly_name: Living Room Luminance
-#  icon: mdi:brightness-7
-#sensor.fibaro_system_fgms001zw5_motion_sensor_seismic_intensity_2_25:
-#  friendly_name: Living Room Seismic Intensity
-#  icon: mdi:vibrate
-#binary_sensor.motion:
-#  friendly_name: Living Room Motion
-#binary_sensor.tampering:
-#  friendly_name: Sensor Tampering
-#  icon: mdi:shield-outline
+
+sensor.external_ip:
+   friendly_name: External IP Address
+
+# Travel Time Sensor
+sensor.home2work:
+  friendly_name: Home -> Work
+  icon: mdi:briefcase
+sensor.work2home:
+  friendly_name: Work -> Home
+  icon: mdi:home
+sensor.lei2home:
+  friendly_name: Lei -> Home
+  icon: mdi:home
+sensor.lei2work:
+  friendly_name: Lei -> Work
+  icon: mdi:briefcase
+
+# System Info Sensor
+sensor.cpu_speed:
+  friendly_name: CPU Speed
+sensor.cpu_use:
+  friendly_name: CPU Usage
+sensor.disk_free_:
+  friendly_name: Available Disk
+sensor.ram_free:
+  friendly_name: Available Memory
+sensor.ipv4_address_eth0:
+  friendly_name: IP Address
+sensor.last_boot:
+  friendly_name: Last Boot
+sensor.since_last_boot:
+  friendly_name: Up Since
+sensor.time:
+  friendly_name: Time
+sensor.date:
+  friendly_name: Date
+
+
+
 #script.good_night:
 #  friendly_name: Good Night
 #  icon: mdi:sleep
