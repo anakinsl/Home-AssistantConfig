@@ -56,9 +56,7 @@ camera:
     image_rotation: 270
     timelapse: 500
     
-
 # Climate
-
 climate:
   platform: nest
 
@@ -79,8 +77,13 @@ nest:
 #  api_key: !secret microsoftface_api
 
 # IFTTT Key
-#ifttt:
-#  key: !secret ifttt_api
+ifttt:
+  key: !secret ifttt_secret
+
+notify:
+  - name: notify
+    platform: pushbullet
+    api_key: !secret pushbulley_apikey
 
 # iOS App
 ios:
@@ -168,12 +171,12 @@ weblink: !include includes/weblink.yaml
 #input_select: !include includes/input_select.yaml
 #input_slider: !include includes/input_slider.yaml
 binary_sensor: !include includes/binary_sensor.yaml
-#script: !include includes/script.yaml
+script: !include includes/script.yaml
 #Microsoft Face Image Processing
 #image_processing: !include includes/image_processing.yaml
 
 
 # Merge List
 
-#automation: !include_dir_merge_list includes/automation
+automation: !include_dir_merge_list includes/automation
 

@@ -1,0 +1,26 @@
+############################################################
+#
+# Home Assistant Scripts
+#
+############################################################
+
+
+ifttt_notify:
+  sequence:
+    - service: ifttt.trigger
+      data_template: { "event": "Smart_Home", "value1": "{{ value1 }}", "value2": " {{ value2 }}"}   
+  
+pushbullet_notify:
+  sequence:
+    - service: notify.notify
+      data_template:
+        message: "{{ value1 }} {{ value2 }}"
+        title: "{{ value1 }} {{ value2 }}"
+
+notify_me:
+  sequence:
+    - service: script.ifttt_notify
+      data_template:
+        event: "Smart_Home"
+        value1: '{{ value1 }}'
+        value2: '{{ value2 }}'

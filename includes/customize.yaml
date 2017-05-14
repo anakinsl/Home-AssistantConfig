@@ -14,6 +14,11 @@ group.climate:
   order: 4
 group.family:
   order: 5
+group.scripts:
+  order: 6
+group.home_assistant_automations:
+  order: 7
+
 
 group.network:
   order: 10
@@ -147,6 +152,18 @@ sensor.date:
   friendly_name: Date
 
 
+# Script Stuff
+script.ifttt_notify:
+  friendly_name: Notify Via IFTTT
+  icon: mdi:share
+
+script.pushbullet_notify:
+  friendly_name: Notify Via PushBullet
+  icon: mdi:share
+
+script.notify_me:
+  friendly_name: Notify Me (Default IFTTT)
+  icon: mdi:share
 
 #script.good_night:
 #  friendly_name: Good Night

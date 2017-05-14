@@ -14,7 +14,8 @@ default_view:
     - group.family
     - group.travel_time
     - group.date_time
-#    - group.scripts
+    - group.scripts
+    - group.home_assistant_automations
 
 player_view:
   view: yes
@@ -109,10 +110,14 @@ family:
     - device_tracker.anakinsl_hw_p9
     - device_tracker.fansiphone    
     
-#scripts:
-#  name: Scripts
-#  entities:
+scripts:
+  name: Scripts
+  entities:
 #    - script.good_night
+    - script.ifttt_notify
+    - script.pushbullet_notify
+    - script.notify_me
+
     
 cameras:
   name: Cameras
@@ -162,7 +167,7 @@ system_monitor:
     - sensor.cpu_use  
     - sensor.ram_free
     - sensor.disk_free_
-    - sensor.ipv4_address_wlan0
+    - sensor.ipv4_address_eth0
     - sensor.last_boot
     - sensor.since_last_boot
     - sensor.piuptime
@@ -194,9 +199,15 @@ travel_time:
   name: Travel Time
   entities:
     - sensor.home2work
+    - sensor.lei2work
     - sensor.work2home
     - sensor.lei2home
-    - sensor.lei2work
+
+Home Assistant Automations:
+  entities:
+    - automation.startup_notification
+    - automation.update_available_notification
+
 
 #automation_override:
 #  name: Automation Override

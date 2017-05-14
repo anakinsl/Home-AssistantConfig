@@ -1,0 +1,16 @@
+
+############################################################
+#
+# StartUp Notification
+#
+############################################################
+
+
+- alias: Startup Notification
+  initial_state: true
+  trigger:
+    -  platform: homeassistant
+       event: start
+  action:
+    - service: script.pushbullet_notify
+      data: { "value1":"Home Assistant restarted successfully!", "value2":""}   
