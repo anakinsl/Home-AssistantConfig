@@ -4,6 +4,10 @@
 #
 ############################################################
 
+###########################################################
+# Views Group
+############################################################
+
 default_view:
   view: yes
   name: Home
@@ -31,19 +35,21 @@ player_view:
 #    - group.media_spotify
 #    - group.radio
 
-
-doors_view:
+Security_view:
   view: yes
   icon: mdi:security-home
   entities:
     - group.cameras
-
+    - group.securitysensor
+    - group.security_automations
+    
 lights_view:
   view: yes
   icon: mdi:lightbulb
   entities:
-    - group.lamps
-
+    - group.officelamps
+    - group.dining_room_lamps
+#    - group.lights_control_automations
 
 info_view:
   view: yes
@@ -58,7 +64,10 @@ info_view:
     - group.internet_speed
 
 
-# Groups
+###########################################################
+# Main View Group
+###########################################################
+
 weather:
   name: Weather
   entities:
@@ -74,7 +83,47 @@ climate:
   name: Climate
   entities:
     - climate.hallway
-   
+
+family:
+  name: Family
+  entities:
+    - device_tracker.anakinsl_hw_p9
+    - device_tracker.fansiphone 
+    
+date_time:
+  name: Date Time
+  entities:
+    - sensor.time
+    - sensor.date
+    - binary_sensor.workday_sensor
+
+travel_time:
+  name: Travel Time
+  entities:
+    - sensor.home2work
+    - sensor.lei2work
+    - sensor.work2home
+    - sensor.lei2home
+
+Home Assistant Automations:
+  entities:
+    - automation.startup_notification
+    - automation.update_available_notification
+
+    
+scripts:
+  name: Scripts
+  entities:
+#    - script.good_night
+    - script.ifttt_notify
+    - script.pushbullet_notify
+    - script.notify_me
+
+    
+###########################################################
+# Player View Group
+###########################################################
+
 media_office_home:
   name: Media Office Home
   entities:
@@ -104,28 +153,44 @@ media_office_speaker:
 #  entities:
  #   - media_player.spotify
 
-family:
-  name: Family
-  entities:
-    - device_tracker.anakinsl_hw_p9
-    - device_tracker.fansiphone    
-    
-scripts:
-  name: Scripts
-  entities:
-#    - script.good_night
-    - script.ifttt_notify
-    - script.pushbullet_notify
-    - script.notify_me
+ 
+###########################################################
+# Security View Group
+###########################################################
 
-    
 cameras:
   name: Cameras
   entities:
     - camera.raspberry_pi_camera
 #    - camera.back_deck
-lamps:
-  name: Lamps
+
+Security Automations:
+  entities:
+    - automation.notify_entry_door_Status
+
+    
+securitysensor:
+  name: Security Sensors
+  entities:
+    - binary_sensor.door_window_sensor_158d0001211953
+    - binary_sensor.motion_sensor_158d00015e8541
+##    - sensor.fibaro_system_fgms001zw5_motion_sensor_sourcenodeid_2_2
+#    - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_2_3
+#    - sensor.fibaro_system_fgms001zw5_motion_sensor_seismic_intensity_2_25
+##    - sensor.fibaro_system_fgms001zw5_motion_sensor_general_2_0
+##    - sensor.fibaro_system_fgms001zw5_motion_sensor_burglar_2_10
+##    - sensor.__battery_level_2_0
+#    - binary_sensor.motion
+#    - binary_sensor.tampering
+
+
+    
+###########################################################
+# Lights View Group
+###########################################################
+
+officelamps:
+  name: Office
   entities:
     - switch.work_lamp
 #    - switch.bed_rachel_lamp
@@ -133,6 +198,28 @@ lamps:
 #    - switch.outside_heater
 #    - input_boolean.ifttt_office_lamp
 
+dining_room_lamps_hide:
+  name: Ceiling Lamps
+  icon: mdi:ceiling-light
+  entities:
+    - light.hue_white_lamp_1
+    - light.hue_white_lamp_2
+    
+Dining Room Lamps:
+  name: Dining Room
+  entities:
+    - group.dining_room_lamps_hide
+   
+    
+Lights Control Automations:
+  entities:
+    - automation.dinning_light_control
+    
+    
+###########################################################
+# Info View Group
+###########################################################
+    
 infolinks:
   name: Links
   entities:
@@ -187,26 +274,6 @@ synology:
     - sensor.status_volume_2
     - sensor.volume_used_volume_2
     - sensor.maximum_disk_temp_volume_2
-    
-date_time:
-  name: Date Time
-  entities:
-    - sensor.time
-    - sensor.date
-    - binary_sensor.workday_sensor
-
-travel_time:
-  name: Travel Time
-  entities:
-    - sensor.home2work
-    - sensor.lei2work
-    - sensor.work2home
-    - sensor.lei2home
-
-Home Assistant Automations:
-  entities:
-    - automation.startup_notification
-    - automation.update_available_notification
 
 
 #automation_override:
@@ -221,16 +288,4 @@ Home Assistant Automations:
 #    - input_boolean.disable_device_tampering_notification
 
 
-#multisensor:
-#  name: Multisensor
-#  entities:
-#    - sensor.fibaro_system_fgms001zw5_motion_sensor_temperature_2_1
-##    - sensor.fibaro_system_fgms001zw5_motion_sensor_sourcenodeid_2_2
-#    - sensor.fibaro_system_fgms001zw5_motion_sensor_luminance_2_3
-#    - sensor.fibaro_system_fgms001zw5_motion_sensor_seismic_intensity_2_25
-##    - sensor.fibaro_system_fgms001zw5_motion_sensor_general_2_0
-##    - sensor.fibaro_system_fgms001zw5_motion_sensor_burglar_2_10
-##    - sensor.__battery_level_2_0
-#    - binary_sensor.motion
-#    - binary_sensor.tampering
 

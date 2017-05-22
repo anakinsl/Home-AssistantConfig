@@ -12,5 +12,5 @@
     - platform: state
       entity_id: updater.updater
   action:
-    - service: script.notify_me
+    - service: script.pushbullet_notify
       data: {"value1":"New HASS update is available. Please update!", "value2":""}

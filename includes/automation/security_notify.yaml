@@ -1,0 +1,21 @@
+
+############################################################
+#
+# Security Notification
+#
+############################################################
+
+
+     
+ - alias: Notify Entry Door Status
+   initial_state: true
+   trigger:
+     platform: state
+     entity_id: 
+      - binary_sensor.door_window_sensor_158d0001211953
+   #condition:
+   #  - condition: template
+   #     value_template: '{% if trigger.from_state %} True {% else %} False {% endif %}'
+   action:
+     - service: script.pushbullet_notify
+       data_template: {"value1":"The main door is {% if is_state('binary_sensor.door_window_sensor_158d0001211953', 'on') %}Open{% else %}Close{% endif %}!", "value2":""}

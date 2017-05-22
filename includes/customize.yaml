@@ -151,7 +151,12 @@ sensor.time:
 sensor.date:
   friendly_name: Date
 
-
+# Xiaomi Sensor
+binary_sensor.door_window_sensor_158d0001211953:
+  friendly_name: Main Door Sensor
+binary_sensor.motion_sensor_158d00015e8541: 
+  friendly_name: Hallway Motion Sensor
+  
 # Script Stuff
 script.ifttt_notify:
   friendly_name: Notify Via IFTTT

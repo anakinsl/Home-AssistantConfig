@@ -109,7 +109,13 @@ device_tracker:
     home_interval: 5
     interval_seconds: 10
 
- 
+#   xiaomi
+xiaomi:
+  gateways:
+    - sid:
+      key: !secret xiaomi_apikey
+    
+    
 #ZWave Devices
 #zwave:
 #  usb_path: /dev/ttyACM0
